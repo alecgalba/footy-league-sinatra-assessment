@@ -1,0 +1,13 @@
+require './config/environment'
+
+class ApplicationController < Sinatra::Base
+  include Helpers
+
+  configure do
+    set :public_folder, 'public'
+    set :views, 'app/views'
+    enable :sessions
+    set :session_secret, "soccer-safe"
+  end
+
+end
