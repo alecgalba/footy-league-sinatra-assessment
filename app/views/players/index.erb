@@ -1,0 +1,26 @@
+<p><a href="/teams/new">Create New Team</a></p>
+<p><a href="/teams/all">See All Teams</a></p>
+<p><a href="/leagues/new">Create New League</a></p>
+<p><a href="/leagues/all">See All Leagues</a></p>
+
+<h2>Your Teams:</h2>
+  <ul>
+  <% @current_user.teams.each do |team| %>
+      <li><a href="/teams/<%= team.id %>"><%= team.name  %>(<%= team.mascot %>) - <%= team.colors %></a></li>
+  <% end %>
+  </ul>
+
+<h2>Your Leagues:</h2>
+
+<% @current_user.leagues.each do |league| %>
+  <div class="league">
+    <a href="/leagues/<%= league.id %>"><%= league.name %> <%= league.created_at %></a>
+    <ul>
+      <% leagues.teams.each do |team| %>
+      <li><a href="/teams/<%= team.id %>"><%= team.name %>(<%= team.mascot %>)</a></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<a href="/logout">Logout</a>
