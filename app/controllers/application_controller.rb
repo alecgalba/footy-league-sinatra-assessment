@@ -2,6 +2,7 @@ require './config/environment'
 
 class ApplicationController < Sinatra::Base
   include Helpers
+  use Rack::Flash
 
   configure do
     set :public_folder, 'public'
