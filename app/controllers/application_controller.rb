@@ -10,4 +10,8 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "soccer-safe"
   end
 
+  get '/' do
+    erb :index
+  end
+
 end
