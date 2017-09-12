@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Footy League Database</title>
+  </head>
+
+  <body>
+    <%= yield %>
+    <nav>
+      <ul>
+        <% if logged_in? %>
+          <a href= "/teams">See Your Teams</a>
+          <a href= "/leagues">See Your Leagues</a>
+          <a href= "/logout">Sign Out</a>
+        <% else %>
+          <a href= "/signup">Sign Up with Footy League</a>
+          <a href= "/login">Login to Your Player Profile</a>
+        <% end %>
+      </ul>
+    </nav>
+  </body>
+</html>
