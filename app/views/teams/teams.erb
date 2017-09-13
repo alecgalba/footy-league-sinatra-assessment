@@ -1,0 +1,12 @@
+<h1>Welcome, <%= current_user.name %></h1>
+
+<h3>Teams</h3>
+<% @teams.each do |team| %>
+  <div>
+    <%= team.name %>
+    <%= team.mascot %>
+    <%= team.colors %>
+  </div>
+<% end %>
+<br><br>
+<a href="/teams/new">Create Team</a>

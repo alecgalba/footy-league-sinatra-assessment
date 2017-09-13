@@ -1,0 +1,9 @@
+<h2>Edit Your Team</h2>
+
+<form method= "POST" action= "/teams/<%=@team.id%>">
+  <input type= "hidden" id= "hidden" name= "_method" value= "PATCH">
+  <input type= "text" name= "name" value= "<%= @team.name%>" id= "name">
+  <input type= "text" name= "mascot" value= "<%= @team.mascot%>" id= "mascot">
+  <input type= "text" name= "colors" value= "<%= @team.colors%>" id= "colors">
+  <input type= "submit" value= "submit">
+</form>
