@@ -1,0 +1,12 @@
+<h1>Edit a Team:</h1>
+
+<form action="/teams/<%=@team.id%>" method="POST">
+  <label for="team_name">Name</label><br>
+  <input id="name" type="text" name="team[name]" value=<%=@team.name%> ><br>
+  <label for="team_mascot">Mascot</label><br>
+  <input id="team_mascot" type="text" name="team[mascot]" value=<%=@team.mascot%>><br>
+  <label for="team_colors">Colors</label><br>
+  <input id="team_colors" type="text" name="team[colors]" value=<%=@team.colors%>><br>
+
+  <input type="submit" value="Edit Team">
+</form>
