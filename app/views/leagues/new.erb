@@ -1,0 +1,20 @@
+<form action="/leagues" method="POST">
+  <lable>New League Name</label>
+    <input type="text" id="league_name" name="league[name]"><br></br>
+
+  <label><h4>Available Teams</h4></label>
+    <% Team.all.each do |team| %>
+      <label><%= team.name %></label>
+      <input type="checkbox" id="team_<%=team.id%>" name="league[team_ids][]" value="<%= team.id %>"><br>
+
+    <% end %>
+
+ <label><h4>Add A New Team:</h4></label>
+ <label>Team Name:</label>
+  <input type="text" id="new_team" name="team[name]">
+  <label>Mascot:</label>
+  <input type="text" name="team[mascot]">
+  <label>Colors:</label>
+  <input type="text" name="team[colors]">
+  <input type="submit" value="Add New Team">
+</form>
