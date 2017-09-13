@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
   get '/teams' do
-    if session[:playerr_id]
+    if session[:player_id]
       @teams = Team.all
       erb :"teams/teams"
     else
@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
   end
 
   get '/teams/new' do
-    if session[:playerer_id]
+    if session[:player_id]
       erb :"teams/create"
     else
       redirect to '/login'

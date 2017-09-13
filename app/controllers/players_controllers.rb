@@ -1,11 +1,11 @@
 class PlayersController < ApplicationController
 
   get '/signup' do
-   if !session[:player_id]
-     erb :"players/signup"
-   else
+    if !session[:player_id]
+      erb :"players/signup"
+    else
      redirect to "/teams"
-   end
+    end
  end
 
  get '/players/:slug' do
@@ -35,7 +35,7 @@ class PlayersController < ApplicationController
  post '/login' do
    @player = Player.find_by(email: params[:email])
    if @player && @player.authenticate(params[:password])
-     session[:playerer_id] = @player.id
+     session[:player_id] = @player.id
      redirect to '/teams'
    else
      redirect to '/signup'
