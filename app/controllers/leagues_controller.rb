@@ -26,10 +26,6 @@ class LeaguesController < ApplicationController
       @league.teams << Team.create(params[:team])
     end
 
-    # if !params[:user][:name].empty?
-    #   @league.users << User.create(params[:user])
-    # end
-
     @league.save
     redirect to "/leagues/#{@league.id}"
   end
