@@ -1,15 +1,11 @@
 module Helpers
 
   def logged_in?
-    !!session[:user_id]
+    !!session[:player_id]
   end
 
   def current_user
-    if !@user
-      @user = User.find(session[:user_id])
-    else
-      @user
-    end
+    Player.find(session[:player_id])
   end
 
   def redirect_if_not_logged_in
@@ -17,5 +13,5 @@ module Helpers
       redirect '/login'
     end
   end
-  
+
 end
