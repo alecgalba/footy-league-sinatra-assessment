@@ -1,0 +1,23 @@
+<form action="/leagues/<%= @league.id %>" method="POST">
+  <input type="hidden" name="_method" value="patch">
+  <label>Name</label>
+  <input type="text" id="league_name" name="league[name]" value="<%= @league.name%>"><br></br>
+  <label>Edit Leagues:</label><br>
+
+  <% League.all.each do |league| %>
+    <label><%= league.name %></label>
+    <input type="checkbox" name="league[team_ids][]" value="<%= team.id %>" id="<%= team.name %>" <%='checked' if @league.teams.include?(team) %>>
+  <% end %>
+ <label>Add New Team:</label>
+ <input type="text" id="new_team" name="team[name]"><br></br>
+
+
+ <label>Edit Teams</label><br>
+ <% Team.all.each do |team| %>
+    <label><%= team.name %></label>
+    <input type="checkbox" name="league[team_ids][]" value="<%= team.id %>" id="<%= team.name %>" <%='checked' if @league.teams.include?(team) %>>
+  <% end %></br>
+
+  <input type="submit" value="Edit League">
+
+</form>
