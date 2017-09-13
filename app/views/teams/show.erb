@@ -1,8 +1,0 @@
-<p><%= @team.name %></p><br>
-
-<form method= "POST" action= "/teams/<%=@team.id%>/delete">
-  <input type= "hidden" id= "hidden" name= "_method" value= "DELETE">
-  <input type= "submit" value= "Delete Team">
-</form><br>
-
-<a href= "/teams/<%=@team.id%>/edit">Edit Tweet</a>
