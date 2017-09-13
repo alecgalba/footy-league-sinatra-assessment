@@ -1,0 +1,16 @@
+<table>
+  <th>League Name</th>
+  <tr>
+    <% @leagues.each do |league| %>
+      <td align="center"><a href="/leagues/<%= league.id %>"><%= league.name %></a>
+      <ul>
+        <%league.teams.each do |team|%>
+        <li><%=team.name%></li>
+        <%end%>
+      </ul>
+     </tr> </td>
+  <% end %>
+</table>
+<br>
+<a class="button" href="/leagues/new">Create New Leagues</a>
+<a class="button" href="/">Go Home</a>
