@@ -20,14 +20,13 @@ class LeaguesController < ApplicationController
     erb :'leagues/edit'
   end
 
-  post '/leagues' do
-    @league = League.create(params["league"])
-    if !params[:team][:name].empty?
-      @league.teams << Team.create(params[:team])
+  post "/leagues" do
+    if params[:name].blank?
+      redirect to '/leagues'
+    else
+      League.create(:name => params["team"]["name"])
+      redirect '/leagues'
     end
-
-    @league.save
-    redirect to "/leagues/#{@league.id}"
   end
 
   # delete '/leagues/:id/delete' do
