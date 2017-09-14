@@ -30,6 +30,14 @@ class LeaguesController < ApplicationController
     redirect to "/leagues/#{@league.id}"
   end
 
+  # delete '/leagues/:id/delete' do
+  #   @league = League.find_by_id(params[:id])
+  #   if logged_in? && current_user
+  #     league.destroy
+  #   end
+  #   redirect '/leagues/show'
+  # end
+
   post '/leagues/:id' do
     @league = League.find(params[:id])
     @league.update(params[:league])

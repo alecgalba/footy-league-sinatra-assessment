@@ -11,9 +11,17 @@ class TeamsController < ApplicationController
   end
 
   get '/teams/:id' do
-    @teams = Team.find(params[:id])
+    @teams = Team.find_by_id(params[:id])
     erb :"teams/show"
   end
+
+  # delete '/teams/:id/delete' do #This was added!
+  #   @team = Team.find_by_id(params[:id])
+  #   if logged_in? && current_user
+  #     team.destroy
+  #   end
+  #   redirect '/teams'
+  # end
 
   get '/teams/:id/edit' do
     @team = Team.find(params[:id])
@@ -30,8 +38,12 @@ class TeamsController < ApplicationController
   end
 
   post "/teams" do
-    Team.create(:name => params["team"]["name"], :mascot => params["team"]["mascot"], :colors => params["team"]["colors"])
-    redirect '/teams'
+    if params[:name] == "" || params[:mascot] == "" || params[:colors] == ""
+      redirect to '/teams'
+    else
+      Team.create(:name => params["team"]["name"], :mascot => params["team"]["mascot"], :colors => params["team"]["colors"])
+      redirect '/teams'
+    end
   end
 
 end
