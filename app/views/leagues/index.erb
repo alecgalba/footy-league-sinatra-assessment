@@ -5,7 +5,7 @@
       <td align="center"><a href="/leagues/<%= league.id %>"><%= league.name %></a>
       <ul>
         <%league.teams.each do |team|%>
-        <li><%=team.name%></li>
+        <li><%=team.name%> (<%=team.mascot%>)</li>
         <%end%>
       </ul>
      </tr> </td>
