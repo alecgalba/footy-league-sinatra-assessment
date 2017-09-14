@@ -3,7 +3,6 @@ class TeamsController < ApplicationController
 
   get '/teams' do
     @teams = Team.all
-    @leagues = League.all
     erb :'teams/index'
   end
 
