@@ -9,7 +9,6 @@ class LeaguesController < ApplicationController
     erb :'leagues/new'
   end
 
-
   get '/leagues/:id' do
     @league = League.find(params[:id])
     erb :'leagues/show'
