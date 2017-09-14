@@ -6,18 +6,18 @@
   </head>
 
   <body>
-    <%= yield %>
     <nav>
       <ul>
         <% if logged_in? %>
-          <a href= '/teams'>See Your Teams</a>
-          <a href= '/leagues'>See Your Leagues</a>
+          <a href= '/teams'>See All Teams</a>
+          <a href= '/leagues'>See All Leagues</a>
           <a href= '/logout'>Sign Out</a>
         <% else %>
-          <a href= '/login'>Login In to Your Player Profile</a><br>
-          <a href= '/signup'>Not A Member Yet? Sign Up with Footy League</a><br>
+          <a href= '/login'>Login to Your Player Profile</a> -----------
+          <a href= '/signup'>Not A Member Yet? Sign Up with Footy League</a>
         <% end %>
       </ul>
     </nav>
+   <%= yield %>
   </body>
 </html>
