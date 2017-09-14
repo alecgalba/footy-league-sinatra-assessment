@@ -38,7 +38,7 @@ class TeamsController < ApplicationController
   end
 
   post "/teams" do
-    if params[:name] == "" || params[:mascot] == "" || params[:colors] == ""
+    if params[:name].blank? || params[:mascot].blank? || params[:colors].blank?
       redirect to '/teams'
     else
       Team.create(:name => params["team"]["name"], :mascot => params["team"]["mascot"], :colors => params["team"]["colors"])
