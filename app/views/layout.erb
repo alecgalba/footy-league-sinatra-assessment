@@ -6,10 +6,18 @@
   </head>
 
   <body>
+    <style>
+      body {background-image: url("http://theartmad.com/wp-content/uploads/2015/08/Football-Pitch-Wallpaper-1.png"); background-repeat: no-repeat; background-size: cover;}
+      h1 {color:rgb(34,34,34)}
+      h4 {color:rgb(34,34,34)}
+      label {color:rgb(34,34,34)}
+      p {color:rgb(34,34,34)}
+      a:link {color:black}; a:visited {color:purple}
+    </style>
     <nav>
       <ul>
         <% if logged_in? %>
-          <a href= '/teams'>See All Teams</a> ----- 
+          <a href= '/teams'>See All Teams</a> -----
           <a href= '/leagues'>See All Leagues</a> -----
           <a href= '/logout'>Sign Out</a>
         <% else %>
