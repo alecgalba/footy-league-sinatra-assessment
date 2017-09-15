@@ -10,5 +10,5 @@ end
 use Rack::MethodOverride
 use UsersController
 use TeamsController
-use LeaguesController
+# use LeaguesController
 run ApplicationController
