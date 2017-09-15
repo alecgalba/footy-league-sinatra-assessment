@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170913220408) do
+ActiveRecord::Schema.define(version: 20170915200104) do
 
   create_table "league_teams", force: :cascade do |t|
     t.integer "team_id"
