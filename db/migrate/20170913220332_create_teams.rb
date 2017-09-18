@@ -5,7 +5,7 @@ class CreateTeams < ActiveRecord::Migration[5.1]
       t.string :mascot
       t.string :colors
       t.timestamps null: false
-      t.integer :league_id
+      t.integer :user_id
     end
   end
 end
