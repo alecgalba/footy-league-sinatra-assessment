@@ -30,7 +30,7 @@ class TeamsController < ApplicationController
   end
 
   patch '/teams/:id' do
-    @team = Team.find(params[:id])
+    @team = Team.find_by_id(params[:id])
     @team.name = params["team"]["name"]
     @team.mascot = params["team"]["mascot"]
     @team.colors = params["team"]["colors"]
