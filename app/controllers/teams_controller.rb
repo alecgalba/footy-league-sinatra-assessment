@@ -9,41 +9,39 @@ class TeamsController < ApplicationController
     erb :"teams/new"
   end
 
+  post "/teams" do
+    if params[:name] == "" || params[:mascot] == "" || params[:colors] == ""
+      redirect to '/teams'
+    else
+      @team = Team.new(:name => params["team"]["name"], :mascot => params["team"]["mascot"], :colors => params["team"]["colors"])
+      @team.save
+      redirect '/teams'
+    end
+  end
+
   get '/teams/:id' do
     @teams = Team.find_by_id(params[:id])
     erb :"teams/show"
   end
 
-  # delete '/teams/:id/delete' do #This was added!
-  #   @team = Team.find_by_id(params[:id])
-  #   if logged_in? && current_user
-  #     team.destroy
-  #   end
-  #   redirect '/teams'
-  # end
-
   get '/teams/:id/edit' do
-    @team = Team.find(params[:id])
+    @team = Team.find_by_id(params[:id])
     erb :"teams/edit"
   end
 
-  post '/teams/:id' do
+  patch '/teams/:id' do
     @team = Team.find(params[:id])
     @team.name = params["team"]["name"]
     @team.mascot = params["team"]["mascot"]
     @team.colors = params["team"]["colors"]
     @team.save
-    redirect to "/teams/#{@team.id}"
+    redirect to "/teams"
   end
 
-  post "/teams" do
-    # if params[:name].blank? || params[:mascot].blank? || params[:colors].blank?
-    #   redirect to '/teams'
-    # else
-      @team = Team.new(:name => params["team"]["name"], :mascot => params["team"]["mascot"], :colors => params["team"]["colors"])
-      @team.save
-      redirect '/teams'
-    # end
+  delete '/teams/:id/delete' do
+    @team = Team.find_by_id(params[:id])
+    @team.delete
+    redirect "/teams"
   end
 
 end
