@@ -1,4 +1,3 @@
 class Team <ActiveRecord::Base
-  has_many :users
-  belongs_to :league
+  belongs_to :user
 end
