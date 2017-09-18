@@ -10,12 +10,12 @@ class TeamsController < ApplicationController
   end
 
   post "/teams" do
-    if params[:name].blank? || params[:mascot].blank? || params[:colors].blank?
-      redirect to '/teams'
+    if params["team"]["name"] == "" || params["team"]["mascot"] == "" || params["team"]["colors"] == ""
+      erb :"teams/new"
     else
       @team = Team.new(:name => params["team"]["name"], :mascot => params["team"]["mascot"], :colors => params["team"]["colors"])
       @team.save
-      redirect '/teams'
+      redirect '/teams/:id'
     end
   end
 
