@@ -13,9 +13,10 @@ class TeamsController < ApplicationController
     if params["team"]["name"] == "" || params["team"]["mascot"] == "" || params["team"]["colors"] == ""
       erb :"teams/new"
     else
-      @team = Team.new(:name => params["team"]["name"], :mascot => params["team"]["mascot"], :colors => params["team"]["colors"])
+      #@team = Team.new(:name => params["team"]["name"], :mascot => params["team"]["mascot"], :colors => params["team"]["colors"])
+      @team = current_user.teams.build(:name => params["team"]["name"], :mascot => params["team"]["mascot"], :colors => params["team"]["colors"])
       @team.save
-      redirect '/teams/:id'
+      redirect "/teams/#{@team.id}"
     end
   end
 
@@ -26,7 +27,11 @@ class TeamsController < ApplicationController
 
   get '/teams/:id/edit' do
     @team = Team.find_by_id(params[:id])
-    erb :"teams/edit"
+    if @team.user_id == current_user.id
+      erb :"teams/edit"
+    else
+      redirect "/teams"
+    end
   end
 
   patch '/teams/:id' do
