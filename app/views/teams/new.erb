@@ -1,12 +1,18 @@
 <h1>Create a New Team:</h1>
-
-<form action="/teams" method="POST">
-  <label for="team_name">Name</label><br>
-  <input id="team_name" type="text" name="team[name]"><br>
-  <label for="team_mascot">Mascot</label><br>
-  <input id="team_mascot" type="text" name="team[mascot]"><br>
-  <label for="team_colors">Colors</label><br>
-  <input id="team_Colors" type="text" name="team[colors]"><br>
-
-  <input type="submit" value="Create Team">
-</form>
+<div>
+  <form action="/teams" method="POST">
+    <div>
+      <label for="team_name">Team Name: </label>
+      <input id="team_name" type="text" name="team[name]">
+    </div>
+    <div>
+      <label for="team_mascot">Team Mascot: </label>
+      <input id="team_mascot" type="text" name="team[mascot]">
+    </div>
+    <div>
+      <label for="team_colors">Team Colors: </label>
+      <input id="team_Colors" type="text" name="team[colors]">
+    </div>
+    <input type="submit" value="Create Team">
+  </form>
+</div>

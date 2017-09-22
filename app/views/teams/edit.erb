@@ -1,19 +1,29 @@
 <h1>Edit This Team:</h1>
-
-<form action="/teams/<%=@team.id%>" method="POST">
-  <input type= "hidden" name= "_method" value= "PATCH">
-  <label for="team_name">Name</label><br>
-  <input id="name" type="text" name="team[name]" value=<%=@team.name%> ><br>
-  <label for="team_mascot">Mascot</label><br>
-  <input id="team_mascot" type="text" name="team[mascot]" value=<%=@team.mascot%>><br>
-  <label for="team_colors">Colors</label><br>
-  <input id="team_colors" type="text" name="team[colors]" value=<%=@team.colors%>><br>
-
-  <input type="submit" value="Edit Team">
-</form>
-
-<h3>Delete This Team</h3>
-<form method= "POST" action= "/teams/<%=@team.id%>/delete">
-  <input type= "hidden" id= "hidden" name= "_method" value= "DELETE">
-  <input type= "submit" value= "Delete Team">
-</form><br>
+<div>
+  <form action="/teams/<%=@team.id%>" method="POST">
+      <input type= "hidden" name= "_method" value= "PATCH">
+    <div>
+      <label for="team_name">Team Name: </label>
+      <input id="name" type="text" name="team[name]" value=<%=@team.name%>>
+    </div>
+    <div>
+      <label for="team_mascot">Team Mascot: </label>
+      <input id="team_mascot" type="text" name="team[mascot]" value=<%=@team.mascot%>>
+    </div>
+    <div>
+      <label for="team_colors">Team Colors: </label>
+      <input id="team_colors" type="text" name="team[colors]" value=<%=@team.colors%>><br>
+    </div>
+    <input type="submit" value="Edit Team">
+  </form>
+</div>
+<br>
+<h1>Or</h1>
+<div>
+  <form method= "POST" action= "/teams/<%=@team.id%>/delete">
+    <div>
+      <input type= "hidden" id= "hidden" name= "_method" value= "DELETE">
+      <input type= "submit" value= "Delete Team">
+    </div>
+  </form>
+</div>
