@@ -9,13 +9,13 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if params[:username] == "" || params[:email] == "" || params[:password] == ""
-      redirect to '/signup'
-    else
-      @user = User.new(:username => params[:username], :email => params[:email], :password => params[:password])
-      @user.save
+    @user = User.new(params[:user])
+    if @user.save
       session[:user_id] = @user.id
       redirect to '/teams'
+    else
+      @errors = { message: @user.errors.full_messages.join(', ') }
+      erb :'users/create'
     end
   end
 

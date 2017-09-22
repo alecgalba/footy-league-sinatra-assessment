@@ -8,7 +8,6 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "unlockable"
   end
 
-
   get '/' do
     erb :index
   end
